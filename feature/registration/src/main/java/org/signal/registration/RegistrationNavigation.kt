@@ -583,7 +583,7 @@ private fun EntryProviderScope<NavKey>.navigationEntries(
     }
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    val url = "https://support.signal.org/hc/en-us/articles/360007320551"
+    val url = stringResource(R.string.linked_devices_help_url)
     CollectActions(viewModel.actions) { action ->
       when (action) {
         LinkAccountScreenAction.OpenGetHelpArticle -> openUrl(context, url)

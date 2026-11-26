@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="linked_devices_help_url" translatable="false">https://contactokakashigamesofc24-dotcom.github.io/Lume-Download/linked-devices.html</string>
     <string name="terms_and_privacy_policy_url" translatable="false">https://github.com/contactokakashigamesofc24-dotcom/Signal-Android-Connect/blob/luiz-independent-client/docs/LEGAL.md</string>
     <string name="RegistrationActivity_terms_and_privacy">Independent client
 Terms &amp; Privacy Policy</string>

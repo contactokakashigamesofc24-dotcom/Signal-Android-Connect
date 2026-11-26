@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="terms_and_privacy_policy_url" translatable="false">https://signal.org/legal</string>
+    <string name="linked_devices_help_url" translatable="false">https://support.signal.org/hc/en-us/articles/360007320551</string>
     <string name="AccountLockedScreen__learn_more_url" translatable="false">https://support.signal.org/hc/articles/360007059792</string>
 
     <string name="RegistrationActivity_take_privacy_with_you_be_yourself_in_every_message">Take privacy with you.\nBe yourself in every message.</string>
