@@ -75,6 +75,7 @@ val selectableVariants = listOf(
   "nightlyStagingRelease",
   "playProdDebug",
   "luizProdDebug",
+  "luizcopyProdDebug",
   "playProdSpinner",
   "playProdCanary",
   "playProdPerf",
@@ -477,6 +478,15 @@ android {
     create("luiz") {
       dimension = "distribution"
       applicationId = "br.com.contacto.signal.connect"
+      buildConfigField("boolean", "MANAGES_APP_UPDATES", "false")
+      buildConfigField("String", "APK_UPDATE_MANIFEST_URL", "null")
+      buildConfigField("String", "BUILD_DISTRIBUTION_TYPE", "\"github\"")
+    }
+
+    // Second independent installation for side-by-side testing; separate package and app data.
+    create("luizcopy") {
+      dimension = "distribution"
+      applicationId = "br.com.contacto.signal.connect.copy"
       buildConfigField("boolean", "MANAGES_APP_UPDATES", "false")
       buildConfigField("String", "APK_UPDATE_MANIFEST_URL", "null")
       buildConfigField("String", "BUILD_DISTRIBUTION_TYPE", "\"github\"")

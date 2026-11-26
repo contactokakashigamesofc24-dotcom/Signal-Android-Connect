@@ -99,19 +99,20 @@ case "$BUILD_KIND" in
     ;;
 
   instrumentation)
-    if [ "${TYPE:-}" = "luiz" ]; then
+    if [ "${TYPE:-}" = "luizcopy" ]; then
+      echo "::group::Building second Luiz independent debug APK"
+      $GRADLE :Signal-Android:assembleLuizcopyProdDebug
+      echo "::endgroup::"
+      cp app/build/outputs/apk/luizcopyProd/debug/Signal-Android-luizcopy-prod-universal-debug-*.apk "$OUT/app.apk"
+    elif [ "${TYPE:-}" = "luiz" ]; then
       echo "::group::Building Luiz independent debug APK"
       $GRADLE :Signal-Android:assembleLuizProdDebug
       echo "::endgroup::"
       cp app/build/outputs/apk/luizProd/debug/Signal-Android-luiz-prod-universal-debug-*.apk "$OUT/app.apk"
     else
       echo "::group::App + test APKs"
-      # Both tasks must be in a single Gradle invocation so the build script's
-      # isInstrumentationTestRun detection (which keys off the task graph) is true
-      # for both APK builds. That gives both APKs the matching .test_run applicationId.
       $GRADLE assemblePlayProdDebug assemblePlayProdDebugAndroidTest
       echo "::endgroup::"
-
       cp app/build/outputs/apk/playProd/debug/Signal-Android-play-prod-universal-debug-*.apk "$OUT/app.apk"
       cp app/build/outputs/apk/androidTest/playProd/debug/Signal-Android-play-prod-debug-androidTest.apk "$OUT/test.apk"
     fi
