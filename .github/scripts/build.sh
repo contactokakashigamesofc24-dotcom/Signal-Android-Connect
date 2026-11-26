@@ -35,7 +35,7 @@ free -g | head -2
 java -version 2>&1 | head -1
 echo "::endgroup::"
 
-GRADLE="./gradlew --console=plain"
+GRADLE="./gradlew --console=plain --max-workers=2 -Pkotlin.compiler.execution.strategy=in-process"
 
 case "$BUILD_KIND" in
   release)
