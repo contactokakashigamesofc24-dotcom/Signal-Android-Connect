@@ -108,6 +108,10 @@ jobs:
           # The URL the app polls for nightly updates, baked into nightly-url.txt.
           # Repository secrets NIGHTLY_URL_PROD / NIGHTLY_URL_STAGING; empty for every other type.
           NIGHTLY_URL: ${{ (inputs.type == 'nightly' && secrets.NIGHTLY_URL_PROD) || (inputs.type == 'nightlyStaging' && secrets.NIGHTLY_URL_STAGING) || '' }}
+          # Used only by the instrumentation build path when TYPE=luiz.
+          LUME_SIGNING_KEYSTORE_B64: ${{ secrets.LUME_SIGNING_KEYSTORE_B64 }}
+          LUME_SIGNING_PASSWORD: ${{ secrets.LUME_SIGNING_PASSWORD }}
+          LUME_SIGNING_ALIAS: ${{ secrets.LUME_SIGNING_ALIAS }}
         run: |
           mkdir -p out
           docker run --rm \
@@ -115,8 +119,9 @@ jobs:
             -v "$PWD/src:/project" -w /project \
             -v "$PWD/out:/out" \
             -v "$PWD/.github/scripts:/scripts:ro" \
-            -e BUILD_KIND -e TYPE -e INDEX -e NIGHTLY_URL -e OUT=/out \
-            signal-android bash /scripts/build.sh
+            -e BUILD_KIND -e TYPE -e INDEX -e NIGHTLY_URL \
+            -e LUME_SIGNING_KEYSTORE_B64 -e LUME_SIGNING_PASSWORD -e LUME_SIGNING_ALIAS \
+            -e OUT=/out signal-android bash /scripts/build.sh
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         # gh api repos/actions/upload-artifact/commits/v7 --jq '.sha'

@@ -99,7 +99,23 @@ case "$BUILD_KIND" in
     ;;
 
   instrumentation)
-    if [ "${TYPE:-}" = "luizcopy" ]; then
+    if [ "${TYPE:-}" = "luiz" ]; then
+      # Sign only the independent Lume debug APK with its stable repository key.
+      # The keystore and properties are written only inside this ephemeral build
+      # container and removed when the script exits.
+      require_env LUME_SIGNING_KEYSTORE_B64 LUME_SIGNING_PASSWORD LUME_SIGNING_ALIAS
+      printf '%s' "$LUME_SIGNING_KEYSTORE_B64" | base64 --decode > lume-signing.p12
+      chmod 600 lume-signing.p12
+      printf 'storeFile=%s\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\n' \
+        "lume-signing.p12" "$LUME_SIGNING_PASSWORD" "$LUME_SIGNING_ALIAS" "$LUME_SIGNING_PASSWORD" \
+        > keystore.debug.properties
+      chmod 600 keystore.debug.properties
+      trap 'rm -f lume-signing.p12 keystore.debug.properties' EXIT
+      echo "::group::Building Lume APK with stable signing key"
+      $GRADLE :Signal-Android:assembleLuizProdDebug
+      echo "::endgroup::"
+      cp app/build/outputs/apk/luizProd/debug/Signal-Android-luiz-prod-universal-debug-*.apk "$OUT/app.apk"
+    elif [ "${TYPE:-}" = "luizcopy" ]; then
       # This runner has 8 GiB RAM. The upstream 12 GiB Gradle heap causes the
       # kernel to kill the daemon during Kotlin compilation; cap only this
       # custom second-copy build and keep Kotlin compilation in-process.
