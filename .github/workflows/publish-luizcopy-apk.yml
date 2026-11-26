@@ -1,0 +1,27 @@
+name: Publish Signal Connect Clone APK
+on:
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download successful build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: out-0
+          path: out
+          repository: contactokakashigamesofc24-dotcom/Signal-Android-Connect
+          run-id: 45796385136
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify APK artifact
+        run: |
+          test -s out/app.apk
+          test "$(stat -c%s out/app.apk)" = "270817754"
+          sha256sum out/app.apk
+      - name: Upload APK asset to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload luizcopy-apk-2026-11-26 'out/app.apk#Signal-Connect-Clone.apk' --repo contactokakashigamesofc24-dotcom/Signal-Android-Connect --clobber
