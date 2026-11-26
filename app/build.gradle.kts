@@ -74,6 +74,7 @@ val selectableVariants = listOf(
   "nightlyProdRelease",
   "nightlyStagingRelease",
   "playProdDebug",
+  "luizProdDebug",
   "playProdSpinner",
   "playProdCanary",
   "playProdPerf",
@@ -467,6 +468,15 @@ android {
 
     create("github") {
       dimension = "distribution"
+      buildConfigField("boolean", "MANAGES_APP_UPDATES", "false")
+      buildConfigField("String", "APK_UPDATE_MANIFEST_URL", "null")
+      buildConfigField("String", "BUILD_DISTRIBUTION_TYPE", "\"github\"")
+    }
+
+    // Separate package for Luiz's independent client; leaves the installed app and its data untouched.
+    create("luiz") {
+      dimension = "distribution"
+      applicationId = "br.com.contacto.signal.connect"
       buildConfigField("boolean", "MANAGES_APP_UPDATES", "false")
       buildConfigField("String", "APK_UPDATE_MANIFEST_URL", "null")
       buildConfigField("String", "BUILD_DISTRIBUTION_TYPE", "\"github\"")
