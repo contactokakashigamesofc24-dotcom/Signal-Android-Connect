@@ -1,0 +1,3 @@
+Lume is an experimental independent Android client flavor based on the open-source Signal Android codebase. It is not affiliated with, endorsed by, or supported by Signal Messenger or Signal Technology Foundation.
+
+This project preserves the upstream license and attribution. Its independent features and release readiness are still under development and must be tested before public distribution.

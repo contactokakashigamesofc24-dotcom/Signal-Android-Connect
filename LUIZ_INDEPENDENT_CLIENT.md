@@ -1,12 +1,16 @@
-# Luiz independent client workstream
+# Lume independent Android client
 
-This branch is a separate, private working copy based on Signal Android. The original `Signal` prototype repository and its installed APKs are not modified.
+Lume is the independent distribution flavor in this repository. It uses the Signal Android source code under the AGPL-3.0 license and is not developed, endorsed, or supported by Signal Messenger or Signal Technology Foundation.
 
-## First integration milestone
+## Branding scope
 
-- Add a `luiz` distribution flavor with package `br.com.contacto.signal.connect`, so test installs can coexist with the current app.
-- Keep official Signal's registration and linked-device onboarding active while the server connection is being tested.
-- Include the existing welcome/restore UI source as `LuizWelcomePrototypeActivity` in this flavor as a migration reference; it is deliberately not set as launcher because its SMS/registration actions are only local prototypes and would bypass the real Signal client flow.
-- Do not describe the app as connected until QR linking and real send/receive tests succeed.
+- Launcher label: Lume.
+- Launcher icon: original lantern artwork created for this flavor.
+- Conversation screens, controls, action icons, and existing app behavior are not intentionally changed by this branding update.
+- The Android application ID remains `br.com.contacto.signal.connect`.
 
-This is an unofficial independent build, not a Signal-maintained client. Review the upstream AGPL-3.0 license and Signal's support policy before distribution.
+## Current development status
+
+This is an experimental independent client flavor. The separate welcome/restore screen is only a local prototype and is not the app's launcher. Do not describe the app as connected to other services or ready for release unless the real registration, linking, and send/receive flows have been tested.
+
+The project includes upstream Signal source and retains required attribution and license notices. Review all third-party libraries, assets, API keys, and build requirements before any release or repository submission.

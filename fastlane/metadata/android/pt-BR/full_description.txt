@@ -1,0 +1,3 @@
+Lume é uma variante experimental e independente para Android baseada no código aberto do Signal Android. Não é um aplicativo oficial e não tem afiliação, aprovação ou suporte da Signal Messenger ou da Signal Technology Foundation.
+
+O projeto mantém a licença e os créditos do código original. Os recursos da versão independente e sua prontidão para lançamento ainda precisam ser desenvolvidos e testados antes de qualquer distribuição pública.
