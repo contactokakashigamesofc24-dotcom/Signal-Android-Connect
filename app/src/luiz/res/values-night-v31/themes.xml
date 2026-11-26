@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Signal.DayNight.NoActionBar" parent="TextSecure.LightNoActionBar">
+    <style name="Theme.Lume.Splash" parent="TextSecure.LightNoActionBar">
         <item name="android:windowSplashScreenBackground">@color/signal_background_primary</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/lume_splash</item>
+    </style>
+    <style name="Theme.Signal.DayNight.NoActionBar" parent="Theme.Lume.Splash" />
+    <style name="Theme.Signal.DayNight.NoActionBar.LightSplash" parent="Theme.Lume.Splash">
+        <item name="android:windowSplashScreenBackground">@color/signal_light_colorBackground</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/lume_splash</item>
+    </style>
+    <style name="Theme.Signal.DayNight.NoActionBar.DarkSplash" parent="Theme.Lume.Splash">
+        <item name="android:windowSplashScreenBackground">@color/signal_dark_colorBackground</item>
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/lume_splash</item>
     </style>
 </resources>
