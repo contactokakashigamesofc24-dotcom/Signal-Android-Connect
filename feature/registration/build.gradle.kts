@@ -9,6 +9,18 @@ plugins {
 android {
   namespace = "org.signal.registration"
 
+  // Mirror the app's distribution flavors so the independent Lume registration
+  // strings and legal link are isolated to that flavor only.
+  flavorDimensions += "distribution"
+  productFlavors {
+    create("play") { dimension = "distribution" }
+    create("website") { dimension = "distribution" }
+    create("github") { dimension = "distribution" }
+    create("luiz") { dimension = "distribution" }
+    create("luizcopy") { dimension = "distribution" }
+    create("nightly") { dimension = "distribution" }
+  }
+
   buildFeatures {
     compose = true
     buildConfig = true
