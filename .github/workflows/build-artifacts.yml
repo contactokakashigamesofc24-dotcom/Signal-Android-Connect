@@ -116,7 +116,7 @@ jobs:
             -v "$PWD/out:/out" \
             -v "$PWD/.github/scripts:/scripts:ro" \
             -e BUILD_KIND -e TYPE -e INDEX -e NIGHTLY_URL -e OUT=/out \
-            signal-android /scripts/build.sh
+            signal-android bash /scripts/build.sh
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         # gh api repos/actions/upload-artifact/commits/v7 --jq '.sha'
