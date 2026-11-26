@@ -51,7 +51,7 @@ public final class MainActivity extends Activity {
     private TextView text(String s,int size,int color,boolean bold){TextView t=new TextView(this);t.setText(s);t.setTextSize(size);t.setTextColor(color);if(bold)t.setTypeface(Typeface.DEFAULT,Typeface.BOLD);return t;}
     private void setRoot(View v){setContentView(v);}
     private void showAuth(){currentConversation="";root=column();ScrollView sc=new ScrollView(this);LinearLayout body=column();body.setPadding(dp(8),dp(42),dp(8),dp(20));TextView mark=text("SI",34,BLUE,true);mark.setGravity(Gravity.CENTER);mark.setBackground(round(CARD,dp(28)));LinearLayout.LayoutParams mp=new LinearLayout.LayoutParams(dp(76),dp(76));mp.gravity=Gravity.CENTER_HORIZONTAL;body.addView(mark,mp);TextView title=text("Meu Mensageiro",25,WHITE,true);title.setGravity(Gravity.CENTER);title.setPadding(0,dp(18),0,dp(8));body.addView(title);TextView subtitle=text(registerMode?"Crie uma conta do mensageiro":"Entre com seu e-mail e senha",15,MUTED,false);subtitle.setGravity(Gravity.CENTER);subtitle.setPadding(0,0,0,dp(26));body.addView(subtitle);
-        EditText name=null;if(registerMode){name=input("Seu nome",false);body.addView(name,lp(-1,dp(54),0,0,0,dp(12)));}
+        final EditText name=registerMode?input("Seu nome",false):null;if(name!=null)body.addView(name,lp(-1,dp(54),0,0,0,dp(12)));
         EditText em=input("E-mail",false);em.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);body.addView(em,lp(-1,dp(54),0,0,0,dp(12)));
         EditText pass=input("Senha (mínimo 10 caracteres)",true);body.addView(pass,lp(-1,dp(54),0,0,0,dp(18)));
         Button go=button(registerMode?"Criar conta":"Entrar");body.addView(go,lp(-1,dp(52),0,0,0,dp(14)));
