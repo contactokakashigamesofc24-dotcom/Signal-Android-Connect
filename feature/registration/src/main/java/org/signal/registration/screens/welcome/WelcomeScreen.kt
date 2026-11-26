@@ -179,11 +179,15 @@ private fun CompactLayout(
 
           Spacer(modifier = Modifier.height(16.dp))
 
-          PrimaryDeviceCallToActionButtons(
-            onEvent = onEvent,
-            onRestoreOrTransferClick = onRestoreOrTransferClick,
-            showRestoreOrTransfer = state.showRestoreOrTransfer
-          )
+          if (state.isLinkAndSyncAvailable) {
+            SecondaryDeviceCallToActionButtons(onEvent = onEvent)
+          } else {
+            PrimaryDeviceCallToActionButtons(
+              onEvent = onEvent,
+              onRestoreOrTransferClick = onRestoreOrTransferClick,
+              showRestoreOrTransfer = state.showRestoreOrTransfer
+            )
+          }
 
           Spacer(modifier = Modifier.height(48.dp))
         }
@@ -238,11 +242,15 @@ private fun MediumLayout(
             .widthIn(max = if (isWidthExpanded) 412.dp else 320.dp),
           horizontalAlignment = Alignment.CenterHorizontally
         ) {
-          PrimaryDeviceCallToActionButtons(
-            onEvent = onEvent,
-            onRestoreOrTransferClick = onRestoreOrTransferClick,
-            showRestoreOrTransfer = state.showRestoreOrTransfer
-          )
+          if (state.isLinkAndSyncAvailable) {
+            SecondaryDeviceCallToActionButtons(onEvent = onEvent)
+          } else {
+            PrimaryDeviceCallToActionButtons(
+              onEvent = onEvent,
+              onRestoreOrTransferClick = onRestoreOrTransferClick,
+              showRestoreOrTransfer = state.showRestoreOrTransfer
+            )
+          }
         }
       }
     }
