@@ -101,7 +101,7 @@ case "$BUILD_KIND" in
   instrumentation)
     if [ "${TYPE:-}" = "luiz" ]; then
       echo "::group::Building Luiz independent debug APK"
-      $GRADLE :app:assembleLuizProdDebug
+      $GRADLE :Signal-Android:assembleLuizProdDebug
       echo "::endgroup::"
       cp app/build/outputs/apk/luizProd/debug/Signal-Android-luiz-prod-universal-debug-*.apk "$OUT/app.apk"
     else
