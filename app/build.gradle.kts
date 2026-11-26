@@ -273,6 +273,7 @@ android {
 
     buildConfigField("long", "BUILD_TIMESTAMP", getLastCommitTimestamp() + "L")
     buildConfigField("String", "GIT_HASH", "\"${getGitHash()}\"")
+    buildConfigField("String", "TERMS_AND_PRIVACY_URL", "\"https://signal.org/legal\"")
     buildConfigField("String", "SIGNAL_URL", "\"https://chat.signal.org\"")
     buildConfigField("String", "STORAGE_URL", "\"https://storage.signal.org\"")
     buildConfigField("String", "SIGNAL_CDN_URL", "\"https://cdn.signal.org\"")
@@ -481,6 +482,7 @@ android {
       buildConfigField("boolean", "MANAGES_APP_UPDATES", "false")
       buildConfigField("String", "APK_UPDATE_MANIFEST_URL", "null")
       buildConfigField("String", "BUILD_DISTRIBUTION_TYPE", "\"github\"")
+      buildConfigField("String", "TERMS_AND_PRIVACY_URL", "\"https://github.com/contactokakashigamesofc24-dotcom/Signal-Android-Connect/blob/luiz-independent-client/docs/LEGAL.md\"")
     }
 
     // Second independent installation for side-by-side testing; separate package and app data.
