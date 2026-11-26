@@ -100,6 +100,13 @@ case "$BUILD_KIND" in
 
   instrumentation)
     if [ "${TYPE:-}" = "luizcopy" ]; then
+      # This runner has 8 GiB RAM. The upstream 12 GiB Gradle heap causes the
+      # kernel to kill the daemon during Kotlin compilation; cap only this
+      # custom second-copy build and keep Kotlin compilation in-process.
+      if grep -q -- '-Xmx12g' gradle.properties; then
+        sed -i 's/-Xmx12g/-Xmx4g/' gradle.properties
+      fi
+      echo "Gradle heap for luizcopy: $(grep '^org.gradle.jvmargs=' gradle.properties | sed -E 's/.*(-Xmx[^ ]+).*/\1/')"
       echo "::group::Building second Luiz independent debug APK"
       $GRADLE :Signal-Android:assembleLuizcopyProdDebug
       echo "::endgroup::"
