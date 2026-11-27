@@ -633,9 +633,9 @@
     <!-- Message shown when the user\'s payment has gone through but has not finished processing yet. -->
     <string name="SignalLoginPaymentScreen__your_payment_is_still_processing">Seu pagamento ainda está sendo processado. Volte e toque em Continuar quando o pagamento for efetuado. Nenhuma cobrança extra será realizada.</string>
     <!-- Label for the internal-testing text field where a receipt credential can be pasted to skip payment. Not shown to real users. -->
-  <!-- Removed by excludeNonTranslatables <string name="SignalLoginPaymentScreen__paste_a_receipt_credential" translatable="false">Paste a receipt credential (testing)</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="SignalLoginPaymentScreen__paste_a_receipt_credential" translatable="false">Cole uma credencial de recibo (teste)</string> -->
     <!-- Error shown when a manually-pasted receipt credential can\'t be parsed or is rejected. Internal testing only. -->
-  <!-- Removed by excludeNonTranslatables <string name="SignalLoginPaymentScreen__this_receipt_credential_is_invalid" translatable="false">This receipt credential is invalid.</string> -->
+  <!-- Removed by excludeNonTranslatables <string name="SignalLoginPaymentScreen__this_receipt_credential_is_invalid" translatable="false">Esta credencial de recibo é inválida.</string> -->
     <!-- Title of the dialog shown when Google Play services is too old to take a payment. -->
     <string name="SignalLoginPaymentScreen__update_google_play_services">Atualizar serviços do Google Play</string>
     <!-- Body of the dialog shown when Google Play services is too old to take a payment. -->
