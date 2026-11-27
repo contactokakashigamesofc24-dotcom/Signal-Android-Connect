@@ -10,5 +10,9 @@
             android:name=".RoutingActivity"
             android:theme="@style/Theme.Lume.Splash"
             tools:replace="android:theme" />
+        <activity
+            android:name="org.signal.registration.RegistrationActivity"
+            android:theme="@style/Theme.Lume.Splash"
+            tools:replace="android:theme" />
     </application>
 </manifest>

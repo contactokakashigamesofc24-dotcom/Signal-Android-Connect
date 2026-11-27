@@ -137,9 +137,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           cp out/app.apk out/Lume.apk
-          gh release create lume-0.1.4-2026-11-26 out/Lume.apk \
+          gh release create lume-0.1.5-2026-11-27 out/Lume.apk \
             --repo "$GITHUB_REPOSITORY" \
             --target "${{ inputs.ref }}" \
-            --title "Lume 0.1.4 — APK de teste" \
+            --title "Lume 0.1.5 — APK de teste" \
             --notes "APK de teste do cliente independente Lume para Android. Não é uma versão publicada ou aprovada pelo F-Droid. Fonte e avisos legais: https://github.com/$GITHUB_REPOSITORY/tree/luiz-independent-client/docs" \
             --prerelease
