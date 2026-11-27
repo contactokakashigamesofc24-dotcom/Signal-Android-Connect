@@ -1303,4 +1303,20 @@
     <string name="AppSettingsNavigation__you_will_lose_changes">Você perderá as alterações feitas.</string>
     <!-- Button in a dialog that throws away unsaved edits and leaves the screen they were made on in settings -->
     <string name="AppSettingsNavigation__discard">Descartar</string>
+
+    <string name="labs_settings_title">Recursos em teste</string>
+    <string name="labs_settings_go_back">Voltar</string>
+    <string name="labs_individual_chat_plaintext_export">Exportar conversa individual como texto</string>
+    <string name="labs_individual_chat_plaintext_export_description">Permite exportar conversas individuais como arquivos de texto legíveis. Adiciona uma opção ao menu de três pontos da conversa.</string>
+    <string name="labs_story_archive">Arquivo de Stories</string>
+    <string name="labs_story_archive_description">Guarde seus Stories por mais tempo para vê-los depois. Um novo botão aparece na barra da aba Stories.</string>
+    <string name="labs_incognito_mode">Modo anônimo</string>
+    <string name="labs_incognito_mode_description">Adiciona a opção de abrir uma conversa no modo anônimo ao tocar e segurar nela. As mensagens não serão marcadas como lidas e as confirmações de leitura não serão enviadas.</string>
+    <string name="labs_better_search">Busca aprimorada</string>
+    <string name="labs_better_search_description">Filtra os resultados da busca por período e autor. Adiciona um botão de filtro à barra de busca.</string>
+    <string name="labs_starred_messages">Mensagens favoritas</string>
+    <string name="labs_starred_messages_description">Permite marcar mensagens como favoritas para consultar depois. Adiciona opções para favoritar/remover do menu ao tocar e segurar e uma tela de favoritas nas configurações da conversa e no menu principal.</string>
+    <string name="labs_improved_message_deletion">Exclusão aprimorada de mensagens</string>
+    <string name="labs_improved_message_deletion_description">Depois de excluir uma mensagem só para você, mostra um aviso que permite excluí-la também para todos.</string>
+    <string name="labs_settings_disclaimer">Estes recursos internos ainda estão em fase de teste e podem estar incompletos. Talvez precisem de ajustes, de um design final ou de compatibilidade com outros clientes antes de serem lançados.</string>
 </resources>

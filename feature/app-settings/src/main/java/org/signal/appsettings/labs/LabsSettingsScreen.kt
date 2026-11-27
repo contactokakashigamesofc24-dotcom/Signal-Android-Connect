@@ -19,9 +19,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewWrapper
 import androidx.compose.ui.unit.dp
 import org.signal.appsettings.AppSettingsLazyColumn
+import org.signal.appsettings.R
 import org.signal.core.ui.compose.DayNightPreviews
 import org.signal.core.ui.compose.Rows
 import org.signal.core.ui.compose.Scaffolds
@@ -43,7 +45,7 @@ object LabsSettingsTestTags {
 }
 
 /**
- * Toggles for internal-only pre-release features. The text is deliberately not translated.
+ * Toggles for internal-only pre-release features.
  */
 @Composable
 fun LabsSettingsScreen(
@@ -52,8 +54,8 @@ fun LabsSettingsScreen(
   modifier: Modifier = Modifier
 ) {
   Scaffolds.Settings(
-    title = "Labs",
-    navigationContentDescription = "Go back",
+    title = stringResource(R.string.labs_settings_title),
+    navigationContentDescription = stringResource(R.string.labs_settings_go_back),
     navigationIcon = SignalIcons.ArrowStart.imageVector,
     onNavigationClick = { onEvent(LabsSettingsEvent.NavigateBackClicked) },
     modifier = modifier,
@@ -70,8 +72,8 @@ fun LabsSettingsScreen(
       item {
         Rows.ToggleRow(
           checked = state.individualChatPlaintextExport,
-          text = "Individual Chat Plaintext Export",
-          label = "Enable exporting individual chats as a collection of human-readable plaintext files. New entry in the three-dot menu in the chat screen.",
+          text = stringResource(R.string.labs_individual_chat_plaintext_export),
+          label = stringResource(R.string.labs_individual_chat_plaintext_export_description),
           onCheckChanged = { onEvent(LabsSettingsEvent.IndividualChatPlaintextExportToggled(it)) },
           modifier = Modifier.testTag(LabsSettingsTestTags.ROW_INDIVIDUAL_CHAT_PLAINTEXT_EXPORT)
         )
@@ -80,8 +82,8 @@ fun LabsSettingsScreen(
       item {
         Rows.ToggleRow(
           checked = state.storyArchive,
-          text = "Story Archive",
-          label = "Keep your own stories for longer and view them later. A new button on the toolbar on the stories tab.",
+          text = stringResource(R.string.labs_story_archive),
+          label = stringResource(R.string.labs_story_archive_description),
           onCheckChanged = { onEvent(LabsSettingsEvent.StoryArchiveToggled(it)) },
           modifier = Modifier.testTag(LabsSettingsTestTags.ROW_STORY_ARCHIVE)
         )
@@ -90,8 +92,8 @@ fun LabsSettingsScreen(
       item {
         Rows.ToggleRow(
           checked = state.incognito,
-          text = "Incognito Mode",
-          label = "Adds an option to long-press a conversation to open it in incognito mode. Messages will not be marked as read and no read receipts will be sent.",
+          text = stringResource(R.string.labs_incognito_mode),
+          label = stringResource(R.string.labs_incognito_mode_description),
           onCheckChanged = { onEvent(LabsSettingsEvent.IncognitoToggled(it)) },
           modifier = Modifier.testTag(LabsSettingsTestTags.ROW_INCOGNITO)
         )
@@ -100,8 +102,8 @@ fun LabsSettingsScreen(
       item {
         Rows.ToggleRow(
           checked = state.betterSearch,
-          text = "Better Search",
-          label = "Filter search results by date range and author. Adds a filter button to the search toolbar.",
+          text = stringResource(R.string.labs_better_search),
+          label = stringResource(R.string.labs_better_search_description),
           onCheckChanged = { onEvent(LabsSettingsEvent.BetterSearchToggled(it)) },
           modifier = Modifier.testTag(LabsSettingsTestTags.ROW_BETTER_SEARCH)
         )
@@ -110,8 +112,8 @@ fun LabsSettingsScreen(
       item {
         Rows.ToggleRow(
           checked = state.starredMessages,
-          text = "Starred Messages",
-          label = "Enables starring messages for later reference. Adds star/unstar to the long-press menu and a starred messages screen accessible from conversation settings and the main menu.",
+          text = stringResource(R.string.labs_starred_messages),
+          label = stringResource(R.string.labs_starred_messages_description),
           onCheckChanged = { onEvent(LabsSettingsEvent.StarredMessagesToggled(it)) },
           modifier = Modifier.testTag(LabsSettingsTestTags.ROW_STARRED_MESSAGES)
         )
@@ -120,8 +122,8 @@ fun LabsSettingsScreen(
       item {
         Rows.ToggleRow(
           checked = state.improvedMessageDeletion,
-          text = "Improved message deletion",
-          label = "After deleting a message for yourself, show a snackbar that lets you also delete it for everyone.",
+          text = stringResource(R.string.labs_improved_message_deletion),
+          label = stringResource(R.string.labs_improved_message_deletion_description),
           onCheckChanged = { onEvent(LabsSettingsEvent.ImprovedMessageDeletionToggled(it)) },
           modifier = Modifier.testTag(LabsSettingsTestTags.ROW_IMPROVED_MESSAGE_DELETION)
         )
@@ -150,7 +152,7 @@ private fun Disclaimer() {
       modifier = Modifier.size(20.dp)
     )
     Text(
-      text = "These are internal-only pre-release features. They are all in various unfinished states. They may need more polish, finalized designs, or cross-client compatibility before they can be released.",
+      text = stringResource(R.string.labs_settings_disclaimer),
       style = MaterialTheme.typography.bodyMedium,
       color = MaterialTheme.colorScheme.onSurfaceVariant,
       modifier = Modifier.padding(start = 12.dp)

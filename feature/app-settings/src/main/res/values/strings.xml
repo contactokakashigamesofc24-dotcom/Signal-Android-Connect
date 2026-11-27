@@ -1303,4 +1303,20 @@
     <string name="AppSettingsNavigation__you_will_lose_changes">You\'ll lose the changes you\'ve made.</string>
     <!-- Button in a dialog that throws away unsaved edits and leaves the screen they were made on in settings -->
     <string name="AppSettingsNavigation__discard">Discard</string>
+
+    <string name="labs_settings_title">Labs</string>
+    <string name="labs_settings_go_back">Go back</string>
+    <string name="labs_individual_chat_plaintext_export">Individual Chat Plaintext Export</string>
+    <string name="labs_individual_chat_plaintext_export_description">Enable exporting individual chats as a collection of human-readable plaintext files. New entry in the three-dot menu in the chat screen.</string>
+    <string name="labs_story_archive">Story Archive</string>
+    <string name="labs_story_archive_description">Keep your own stories for longer and view them later. A new button on the toolbar on the stories tab.</string>
+    <string name="labs_incognito_mode">Incognito Mode</string>
+    <string name="labs_incognito_mode_description">Adds an option to long-press a conversation to open it in incognito mode. Messages will not be marked as read and no read receipts will be sent.</string>
+    <string name="labs_better_search">Better Search</string>
+    <string name="labs_better_search_description">Filter search results by date range and author. Adds a filter button to the search toolbar.</string>
+    <string name="labs_starred_messages">Starred Messages</string>
+    <string name="labs_starred_messages_description">Enables starring messages for later reference. Adds star/unstar to the long-press menu and a starred messages screen accessible from conversation settings and the main menu.</string>
+    <string name="labs_improved_message_deletion">Improved message deletion</string>
+    <string name="labs_improved_message_deletion_description">After deleting a message for yourself, show a snackbar that lets you also delete it for everyone.</string>
+    <string name="labs_settings_disclaimer">These are internal-only pre-release features. They are all in various unfinished states. They may need more polish, finalized designs, or cross-client compatibility before they can be released.</string>
 </resources>
