@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.withTimeoutOrNull
 import org.signal.core.ui.compose.EventDrivenViewModel
 import org.signal.core.util.logging.Log
 import org.signal.libsignal.net.RequestResult
@@ -146,7 +147,20 @@ class PinCreationViewModel(
 
     val masterKey = state.accountEntropyPool.deriveMasterKey()
 
-    return when (val result = repository.setNewlyCreatedPin(pin, state.isAlphanumericKeyboard, masterKey)) {
+    // Do not leave registration spinning forever if the SVR backup request stops responding.
+    val backupResult = withTimeoutOrNull(90_000L) {
+      repository.setNewlyCreatedPin(pin, state.isAlphanumericKeyboard, masterKey)
+    }
+
+    if (backupResult == null) {
+      Log.w(TAG, "[PinSubmitted] Timed out while backing up the master key to SVR.")
+      return state.copy(
+        loading = false,
+        dialogs = state.dialogs.copy(networkError = PinCreationState.Dialogs.NetworkError(null))
+      )
+    }
+
+    return when (val result = backupResult) {
       is RequestResult.Success -> {
         Log.i(TAG, "[PinSubmitted] Successfully backed up master key to SVR.")
         repository.setRestoreDecision(RestoreDecision.NEW_ACCOUNT)
