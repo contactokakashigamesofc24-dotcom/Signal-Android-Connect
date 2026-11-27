@@ -161,6 +161,11 @@ class PinCreationViewModel(
     }
 
     return when (val result = backupResult) {
+      null -> state.copy(
+        loading = false,
+        dialogs = state.dialogs.copy(networkError = PinCreationState.Dialogs.NetworkError(null))
+      )
+
       is RequestResult.Success -> {
         Log.i(TAG, "[PinSubmitted] Successfully backed up master key to SVR.")
         repository.setRestoreDecision(RestoreDecision.NEW_ACCOUNT)
