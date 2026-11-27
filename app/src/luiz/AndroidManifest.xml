@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <application>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.Lume.Splash" />
+            android:theme="@style/Theme.Lume.Splash"
+            tools:replace="android:theme" />
         <activity-alias
             android:name=".RoutingActivity"
-            android:theme="@style/Theme.Lume.Splash" />
+            android:theme="@style/Theme.Lume.Splash"
+            tools:replace="android:theme" />
     </application>
 </manifest>
